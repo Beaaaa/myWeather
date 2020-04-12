@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18E2034" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="City" representedClassName="City" parentEntity="Province" syncable="YES" codeGenerationType="class">
+        <attribute name="city_name" optional="YES" attributeType="String"/>
+        <relationship name="province_belong" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Province" inverseName="city" inverseEntity="Province"/>
+    </entity>
+    <entity name="Country" representedClassName="Country" syncable="YES" codeGenerationType="class">
+        <attribute name="country_name" optional="YES" attributeType="String"/>
+        <relationship name="province" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Province" inverseName="country_belong" inverseEntity="Province"/>
+    </entity>
+    <entity name="Province" representedClassName="Province" parentEntity="Country" syncable="YES" codeGenerationType="class">
+        <attribute name="province_name" optional="YES" attributeType="String"/>
+        <relationship name="city" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" inverseName="province_belong" inverseEntity="City"/>
+        <relationship name="country_belong" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Country" inverseName="province" inverseEntity="Country"/>
+    </entity>
+    <elements>
+        <element name="City" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Province" positionX="-54" positionY="0" width="128" height="88"/>
+        <element name="Country" positionX="-36" positionY="36" width="128" height="73"/>
+    </elements>
+</model>
